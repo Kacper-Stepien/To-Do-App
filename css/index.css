@@ -1,0 +1,38 @@
+.main-nav {
+    padding: 2.4rem 3.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--dark-blue-2);
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, .1);
+}
+
+.main-nav__logo {
+    display: flex;
+    align-items: flex-end;
+}
+
+.main-nav__logo i {
+    margin-right: 10px;
+}
+
+.main-nav .logo-text {
+    font-family: 'Secular One', sans-serif;
+    background: linear-gradient(to right bottom, var(--dark-blue-2), var(--light-blue-1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 60px;
+}
+
+
+
+i {
+    font-size: 100px;
+    background: linear-gradient(to right bottom, var(--dark-blue-2), var(--light-blue-1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.go-next {
+    font-size: 1.6rem;
+}
