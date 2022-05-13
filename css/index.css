@@ -26,15 +26,17 @@
 
 
 i {
-    font-size: 100px;
+    font-size: 10rem;
 }
 
 .go-next {
     font-size: 1.6rem;
     font-weight: 900;
+    text-align: center;
     color: var(--dark-blue-1);
     border: 2px solid var(--dark-blue-1);
     border-radius: 8px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, .2);
     transition: all .4s;
 }
 
@@ -42,7 +44,8 @@ i {
     transform: translateY(-6px);
     color: var(--white-2);
     background-color: var(--dark-blue-2);
-    /* background: linear-gradient(to right bottom, var(--light-blue-1), var(--dark-blue-2)); */
+    box-shadow: 0px 24px 20px rgba(0, 0, 0, .3);
+
     border: none;
 }
 
@@ -107,9 +110,154 @@ footer {
     height: 8vh;
     padding: 1.5rem 2rem;
     font-size: 1.4rem;
+    text-align: center;
     background-color: var(--dark-gray-2);
     color: var(--white-2);
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+
+
+/* Media queries */
+@media only screen and (max-width: 1100px) {
+    section .boxes {
+        justify-content: space-between;
+    }
+
+    section .boxes .box {
+        width: 22rem;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .boxes {
+        flex-direction: column;
+    }
+
+    section .boxes .box {
+        flex-direction: row;
+        width: 85%;
+        height: 22rem;
+        margin-bottom: 2rem;
+        justify-content: flex-start;
+        padding-left: 5rem;
+    }
+
+    section .boxes .box h2 {
+        font-size: 1.8rem;
+        padding-left: 4rem;
+    }
+
+
+}
+
+@media only screen and (max-width: 760px) {
+    .main-nav {
+        flex-direction: column;
+    }
+
+    .main-nav .btn {
+        margin-top: 3rem;
+    }
+
+    section .header {
+        padding: 1rem 0;
+    }
+
+    section .header h1 {
+        font-size: 4rem;
+    }
+
+    section .boxes {
+        margin-bottom: 2rem;
+    }
+
+    section .boxes .box {
+        margin-bottom: 2rem;
+        height: 18rem;
+    }
+
+    section .boxes .box h2 {
+        font-size: 1.6rem;
+    }
+
+    section .boxes .box i {
+        font-size: 7.6rem;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .main-nav .main-nav__logo i {
+        font-size: 8rem;
+    }
+
+    .main-nav .main-nav__logo p {
+        font-size: 5rem;
+    }
+
+    .main-nav .btn {
+        font-size: 1.4rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    section .boxes .box {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .main-nav {
+        padding: 1.6rem 2.4rem;
+    }
+
+    section .header h1 {
+        font-size: 3rem;
+        letter-spacing: 1px;
+    }
+
+    section .boxes .box {
+        padding-left: 1.4rem;
+        padding-right: 1rem;
+        height: 14rem;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .main-nav .main-nav__logo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav .main-nav__logo {
+        margin-bottom: 0;
+    }
+
+    .main-nav .go-next {
+        margin-top: 1rem;
+    }
+
+    section .header h1 {
+        font-size: 2.4rem;
+    }
+
+    section .boxes {
+        margin-top: 2rem;
+    }
+
+    section .boxes .box {
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section .boxes .box h2 {
+        padding: 0;
+    }
 }
