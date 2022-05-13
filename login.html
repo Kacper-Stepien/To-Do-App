@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>To Do - logowanie</title>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <div class="main-nav__logo">
+            <i class="fa-solid fa-circle-check"></i>
+            <p class="logo-text">To Do</p>
+        </div>
+        <a class="btn go-next" href="index.html">Wróć na stronę główną</a>
+    </nav>
+    <main>
+        <!-- Login form -->
+        <form action="https://www.google.com/" id="login-form">
+            <h1>Logowanie</h1>
+            <div class="inputs">
+                <div class="inputfield">
+                    <label for="login">Login:</label>
+                    <input class="input" type="text" id="login" autofocus>
+                </div>
+                <div class="inputfield">
+                    <label for="password">Hasło:</label>
+                    <input class="input" type="password" id="password">
+                </div>
+            </div>
+            <button class="btn btn-submit" type="submit">Zaloguj się</button>
+            <p class="form-text">
+                <a class="form-link" id="create-account">Nie posiadasz konta? Stwórz je teraz</a>
+            </p>
+        </form>
+
+        <!-- Create account form-->
+        <form action="https://www.google.com/" id="create-account-form" class="hidden">
+            <h1>Rejestracja</h1>
+            <div class="inputs">
+                <div class="inputfield">
+                    <label for="name">Imię:</label>
+                    <input class="input" type="text" id="name" autofocus>
+                </div>
+                <div class="inputfield">
+                    <label for="surname">Nazwisko:</label>
+                    <input class="input" type="text" id="surname" autofocus>
+                </div>
+                <div class="inputfield">
+                    <label for="age">Wiek:</label>
+                    <input class="input" type="number" id="age" autofocus>
+                </div>
+                <div class="inputfield">
+                    <label for="login">Login:</label>
+                    <input class="input" type="text" id="login" autofocus>
+                </div>
+                <div class="inputfield">
+                    <label for="password">Hasło:</label>
+                    <input class="input" type="password" id="password">
+                </div>
+                <div class="inputfield">
+                    <label for="password">Powtórz hasło:</label>
+                    <input class="input" type="password" id="password">
+                </div>
+            </div>
+            <button class="btn btn-submit" type="submit">Zarejestruj się</button>
+            <p class="form-text">
+                <a class="form-link" id="log-in">Posiadasz już konto? Zaloguj się teraz</a>
+            </p>
+        </form>
+    </main>
+
+</body>
+<script src="https://kit.fontawesome.com/8c4bd008c3.js" crossorigin="anonymous"></script>
+<script src="js/change-forms.js"></script>
+
+</html>

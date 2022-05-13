@@ -1,4 +1,5 @@
 /* Navbar with logo and button to app */
+
 .main-nav {
     padding: 2.4rem 3.4rem;
     display: flex;
@@ -107,7 +108,7 @@ section .boxes {
 /* Footer */
 footer {
     width: 100%;
-    height: 8vh;
+    height: 12vh;
     padding: 1.5rem 2rem;
     font-size: 1.4rem;
     text-align: center;
