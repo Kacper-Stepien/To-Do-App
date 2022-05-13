@@ -1,8 +1,8 @@
 body {
     background: linear-gradient(to right bottom, var(--dark-blue-2), var(--light-blue-1));
     background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 .hidden {
@@ -37,15 +37,11 @@ body {
 main {
     max-width: 68.2rem;
     width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 5rem;
+    padding: 6rem;
     background-color: var(--white-2);
     border-radius: 8px;
     box-shadow: 0px 30px 40px rgba(0, 0, 0, .3);
-    margin-top: 3rem;
+    margin: 4rem auto 5rem auto;
 }
 
 h1 {
@@ -67,16 +63,18 @@ h1 {
 }
 
 .inputfield {
-    width: 80%;
+    width: 60%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
     margin-bottom: 1.6rem;
     font-size: 1.8rem;
 }
 
 .inputfield label {
     display: block;
-    width: 60%;
+    padding: 0.5rem 0;
 }
 
 .inputfield .input {
@@ -125,4 +123,36 @@ h1 {
 
 .form-link:hover {
     text-decoration: underline;
+}
+
+.error {
+    color: #d90429;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: left;
+    margin-top: .4rem;
+}
+
+
+
+/* Media queries */
+@media only screen and (max-width: 555px) {
+    main {
+        border-radius: 0;
+    }
+
+    .inputfield {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    main {
+        padding: 3rem 1rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+        text-align: center;
+    }
 }
