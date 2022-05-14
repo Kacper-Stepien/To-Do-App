@@ -1,5 +1,9 @@
 /* Navbar with logo and button to app */
 
+body {
+    min-height: 100vh;
+}
+
 .main-nav {
     padding: 2.4rem 3.4rem;
     display: flex;

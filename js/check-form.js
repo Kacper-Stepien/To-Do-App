@@ -1,0 +1,138 @@
+// Variables for log in form
+const loginForm = document.querySelector('#login-form');
+const login = document.querySelector('#login');
+const loginError = document.querySelector('.login-error');
+const password = document.querySelector('#password');
+const passwordError = document.querySelector('.password-error')
+
+// Variables for sign up form
+const createForm = document.querySelector('#create-account-form');
+const namee = document.querySelector('#name');
+const nameError = document.querySelector('.name-error');
+const surname = document.querySelector('#surname');
+const surnameError = document.querySelector('.surname-error');
+const age = document.querySelector('#age');
+const ageError = document.querySelector('.age-error');
+const login1 = document.querySelector('#login-1');
+const login1Error = document.querySelector('.login-1-error');
+const password1 = document.querySelector('#password-1');
+const password1Error = document.querySelector('.password-1-error');
+const password2 = document.querySelector('#password-2');
+const password2Error = document.querySelector('.password-2-error');
+
+// Variables for REGEX
+loginRegex = /[A-ZĄĆĘŁŃÓŚŻŹa-ząćęłńóśżź0-9]{5,20}/;
+nameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
+surnameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}(-[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
+passwordRegex = /.{8,}/;
+
+// Functions for validation 
+
+function checkInput(inputObject, regex) {
+    if (!regex.test(inputObject.value)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function checkIfUsernameIsAvaliable(login) {
+    console.log(1);
+}
+
+function createAccount() {
+    let user = {
+        login: login1.value,
+        password: password1.value,
+        name: namee.value,
+        surname: surname.value,
+        age: age.value,
+        task: [],
+        taskCompleted: [],
+        taskUncompleted: [],
+    };
+
+    let json = JSON.stringify(user);
+    localStorage.setItem(login1.value, json);
+
+    window.alert("Konto zostało utworzone. Możesz się już zalogować");
+    createForm.reset();
+}
+
+// Validation for creating account
+createForm.addEventListener('submit', (e) => {
+
+    let sendForm = true;
+
+    // Check name:
+    if (!checkInput(namee, nameRegex)) {
+        sendForm = false;
+        nameError.innerHTML = "Wpisz poprawne imię, jeśli masz dwa imiona odziel je spacją";
+    }
+    else nameError.innerHTML = "";
+
+    // Check surname:
+    if (!checkInput(surname, surnameRegex)) {
+        sendForm = false;
+        surnameError.innerHTML = "Wpisz poprawne nazwisko, jeśli jest dwuczłonowe odziel je myślnikiem";
+    }
+    else surnameError.innerHTML = "";
+
+    // Check age:
+    if (age.value.length === 0 || age < 6 || age > 120) {
+        sendForm = false;
+        ageError.innerHTML = "Wpisz poprawny wiek, 6 - 120";
+    }
+    else {
+        ageError.innerHTML = "";
+    }
+
+    // Check login
+    if (!checkInput(login1, loginRegex)) {
+        sendForm = false;
+        login1Error.innerHTML = "Wpisz poprawny login, minimum 5 znaków - litery i cyfry";
+    }
+    else if (localStorage.getItem(login1.value) !== null) {
+        sendForm = false;
+        login1Error.innerHTML = "Użytkownik o podanym loginie już istnieje";
+    }
+    else {
+        login1Error.innerHTML = "";
+    }
+
+
+    // Check password 
+    if (password1.value.length == 0) {
+        sendForm = false;
+        password1Error.innerHTML = "Wpisz hasło, minimum 8 znaków";
+    }
+    else if (!checkInput(password1, passwordRegex)) {
+        sendForm = false;
+        password1Error.innerHTML = "Wpisz poprawne hasło";
+    }
+    else {
+        password1Error.innerHTML = "";
+    }
+
+
+    // Check confirmation of password 
+    if (password2.value.length == 0) {
+        sendForm = false;
+        password2Error.innerHTML = "Wpisz ponownie hasło";
+    }
+    else if (password2.value !== password1.value) {
+        sendForm = false;
+        password2Error.innerHTML = "Hasła nie są zgodne";
+    }
+    else {
+        password2Error.innerHTML = "";
+    }
+
+    if (!sendForm) {
+        e.preventDefault();
+    }
+    else {
+        createAccount();
+    }
+})

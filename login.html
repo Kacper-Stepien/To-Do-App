@@ -27,13 +27,13 @@
                 <div class="inputfield">
                     <label for="login">Login:</label>
                     <input class="input" type="text" id="login" autofocus>
-                    <div class="error login-error">Nieprawidłowy login</div>
+                    <div class="error login-error"></div>
                 </div>
 
                 <div class="inputfield">
                     <label for="password">Hasło:</label>
                     <input class="input" type="password" id="password">
-                    <div class="error password-error">Nieprawidłowe hasło</div>
+                    <div class="error password-error"></div>
                 </div>
             </div>
             <button class="btn btn-submit" type="submit">Zaloguj się</button>
@@ -43,38 +43,38 @@
         </form>
 
         <!-- Create account form-->
-        <form action="https://www.google.com/" id="create-account-form" class="hidden">
+        <form id="create-account-form" class="hidden">
             <h1>Rejestracja</h1>
             <div class="inputs">
                 <div class="inputfield">
                     <label for="name">Imię:</label>
                     <input class="input" type="text" id="name" autofocus>
-                    <div class="error name-error">Imię w nieprawidłowym formacie</div>
+                    <div class="error name-error"></div>
                 </div>
                 <div class="inputfield">
                     <label for="surname">Nazwisko:</label>
-                    <input class="input" type="text" id="surname" autofocus>
-                    <div class="error surname-error">Nazwisko w nieprawidłowym formacie</div>
+                    <input class="input" type="text" id="surname">
+                    <div class="error surname-error"></div>
                 </div>
                 <div class="inputfield">
                     <label for="age">Wiek:</label>
-                    <input class="input" type="number" id="age" autofocus>
-                    <div class="error age-error">Niepoprawny wiek</div>
+                    <input class="input" type="number" id="age" min="6" max="120">
+                    <div class="error age-error"></div>
                 </div>
                 <div class="inputfield">
-                    <label for="login">Login:</label>
-                    <input class="input" type="text" id="login" autofocus>
-                    <div class="error login-error">Podany login już istnieje</div>
+                    <label for="login-1">Login:</label>
+                    <input class="input" type="text" id="login-1">
+                    <div class="error login-1-error"></div>
                 </div>
                 <div class="inputfield">
-                    <label for="password">Hasło:</label>
-                    <input class="input" type="password" id="password">
-                    <div class="error pasword-1-error">Hasło za krótkie</div>
+                    <label for="password-1">Hasło:</label>
+                    <input class="input" type="password" id="password-1">
+                    <div class="error password-1-error"></div>
                 </div>
                 <div class="inputfield">
-                    <label for="password">Powtórz hasło:</label>
-                    <input class="input" type="password" id="password">
-                    <div class="error password-2-error">Nieprawidłowy login</div>
+                    <label for="password-2">Powtórz hasło:</label>
+                    <input class="input" type="password" id="password-2">
+                    <div class="error password-2-error"></div>
                 </div>
             </div>
             <button class="btn btn-submit" type="submit">Zarejestruj się</button>
@@ -87,5 +87,6 @@
 </body>
 <script src="https://kit.fontawesome.com/8c4bd008c3.js" crossorigin="anonymous"></script>
 <script src="js/change-forms.js"></script>
+<script src="js/check-form.js"></script>
 
 </html>
