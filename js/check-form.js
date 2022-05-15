@@ -38,7 +38,21 @@ function checkInput(inputObject, regex) {
 }
 
 function checkIfUsernameIsAvaliable(login) {
-    console.log(1);
+    if (localStorage.getItem(login) === null) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function clearErrors() {
+    const errors = document.querySelectorAll('.error');
+    [].slice.call(errors).forEach(function (error) {
+        console.log(error.innerHTML);
+        error.innerHTML = "";
+        console.log(error.innerHTML);
+    });
 }
 
 function createAccount() {
@@ -55,7 +69,7 @@ function createAccount() {
 
     let json = JSON.stringify(user);
     localStorage.setItem(login1.value, json);
-
+    clearErrors();
     window.alert("Konto zostało utworzone. Możesz się już zalogować");
     createForm.reset();
 }
@@ -134,5 +148,43 @@ createForm.addEventListener('submit', (e) => {
     }
     else {
         createAccount();
+    }
+})
+
+
+// validation for Log in
+loginForm.addEventListener('submit', (e) => {
+    let shoudlLogin = true;
+
+    //Check if login exists
+    if (localStorage.getItem(login.value) === null) {
+        shoudlLogin = false
+        loginError.innerHTML = "Użytkownik o podanym loginie nie istnieje";
+    }
+    else {
+        loginError.innerHTML = "";
+    }
+
+    // Check if password is correct
+    if (shoudlLogin) {
+        const user = JSON.parse(localStorage.getItem(login.value));
+        if (password.value !== user.password) {
+            shoudlLogin = false;
+            passwordError.innerHTML = "Hasło jest niepoprawne";
+        }
+        else {
+            passwordError.innerHTML = "";
+        }
+
+    }
+
+
+
+    // Check if should login - if yes active user's data are added to session storage
+    if (!shoudlLogin) {
+        e.preventDefault();
+    }
+    else {
+        sessionStorage.setItem("userActive", localStorage.getItem(login.value));
     }
 })
