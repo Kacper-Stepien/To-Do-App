@@ -38,6 +38,7 @@ html {
 }
 
 
+
 .btn,
 .btn:link,
 .btn:visited {
@@ -50,9 +51,10 @@ html {
 
 /* Scrollbar */
 body::-webkit-scrollbar {
-    width: 1rem;
+    width: 1.2rem;
     /* width of the entire scrollbar */
 }
+
 
 body::-webkit-scrollbar-track {
     background: var(--light-gray-2);

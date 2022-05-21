@@ -164,7 +164,6 @@ loginForm.addEventListener('submit', (e) => {
     else {
         loginError.innerHTML = "";
     }
-
     // Check if password is correct
     if (shoudlLogin) {
         const user = JSON.parse(localStorage.getItem(login.value));
@@ -177,9 +176,6 @@ loginForm.addEventListener('submit', (e) => {
         }
 
     }
-
-
-
     // Check if should login - if yes active user's data are added to session storage
     if (!shoudlLogin) {
         e.preventDefault();
