@@ -7,6 +7,7 @@ const addTaskBtnNow = document.querySelector('.addTaskBtn');
 function closeModal() {
     overlay.classList.add('hidden');
     modalAddTask.classList.add('hidden');
+
 }
 
 closeModalBtn.addEventListener('click', closeModal);

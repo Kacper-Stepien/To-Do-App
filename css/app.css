@@ -302,12 +302,13 @@ body {
 }
 
 
-.add-task-modal {
+.modal {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -65%);
-    width: 70%;
+    width: 50%;
+    height: 50%;
     background: linear-gradient(to right bottom, var(--dark-blue-2), var(--light-blue-1));
 
     padding: 5rem;
@@ -321,10 +322,10 @@ body {
     align-items: stretch;
 }
 
-.add-task-modal .close-modal {
+.modal .close-modal {
     position: absolute;
     top: 0%;
-    left: 95%;
+    right: 5%;
     font-size: 5rem;
     color: var(--white-2);
     cursor: pointer;
@@ -333,13 +334,20 @@ body {
     transition: all .2s;
 }
 
-.add-task-modal .close-modal:hover {
+.modal .close-modal:hover {
     color: #d90429;
     transform: translateY(-4px);
 
 }
 
-.add-task-modal h1 {
+.emptyTitleError {
+    color: var(--white-2);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.modal h1 {
     text-align: center;
     color: var(--white-2);
     margin-bottom: 2rem;
