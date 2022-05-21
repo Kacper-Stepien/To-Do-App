@@ -131,6 +131,15 @@ section {
 
 
 
+.error {
+    color: crimson;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
 /* Media queries */
 @media only screen and (max-width: 1000px) {
     section {
