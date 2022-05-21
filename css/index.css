@@ -58,6 +58,7 @@ i {
 /* Section with header and cards */
 section {
     padding: 4rem;
+    min-height: 80vh;
 }
 
 .header {
@@ -231,6 +232,20 @@ footer {
         padding-right: 1rem;
         height: 14rem;
     }
+
+    section .task {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section .task-info {
+        margin-left: 0;
+    }
+
+    section .task-title {
+        font-size: 2.2rem;
+        margin-left: 0;
+    }
 }
 
 @media only screen and (max-width: 300px) {
@@ -266,3 +281,16 @@ footer {
         padding: 0;
     }
 }
+
+
+@media only screen and (min-width: 2000px) {
+    html {
+        font-size: 90%;
+    }
+
+}
+
+@media only screen and (min-width: 3000px) {
+    html {
+        font-size: 120%;
+    }

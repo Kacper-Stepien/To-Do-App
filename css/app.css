@@ -341,9 +341,8 @@ body {
 }
 
 .emptyTitleError {
-    color: var(--white-2);
     font-size: 1.4rem;
-    font-weight: 400;
+    color: var(--white-2);
     letter-spacing: 2px;
 }
 
@@ -522,4 +521,18 @@ body {
     .task-info-section {
         border-radius: 0
     }
+}
+
+@media only screen and (min-width: 2000px) {
+    html {
+        font-size: 90%;
+    }
+
+}
+
+@media only screen and (min-width: 3000px) {
+    html {
+        font-size: 120%;
+    }
+
 }
