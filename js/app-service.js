@@ -106,7 +106,7 @@ function displayTasksUncompleted(user) {
 
 function displayTasksCompleted(user) {
     tasksFinishedList.innerHTML = "";
-    let taskList = user.taskCompleted.reverse();
+    let taskList = user.taskCompleted;
     if (taskList.length === 0) {
         tasksFinishedList.innerHTML = "<h2>Brak zadań ukończonych</h2>";
     }
@@ -161,6 +161,21 @@ function removeTask(index, status) {
     }
 }
 
+function addTaskToFinished(index) {
+    const user = JSON.parse(sessionStorage.getItem('userActive'));
+    let task = user.taskUncompleted[index];
+    user.taskUncompleted.splice(index, 1);
+    user.taskCompleted.unshift(task);
+
+    let loginToParse = user.login;
+    let jsonToParse = JSON.stringify(user);
+    localStorage.setItem(loginToParse, jsonToParse);
+    sessionStorage.setItem('userActive', jsonToParse);
+    displayInfoAboutUser(user);
+    displayTasksUncompleted(user);
+    displayTasksCompleted(user);
+}
+
 
 function clearTaskInfoSection() {
     taskInfoSectionTitle.innerHTML = "...";
@@ -184,10 +199,16 @@ tasksUnfinishedList.addEventListener('click', function (e) {
     }
     // Check if we click delete button on the div
     if (target.classList.contains("deleteBtn")) {
-        console.log("Delete działa");
-        let index = Array.from(target.parentElement.children).indexOf(target);
-        let index2 = Array.from(index.parentElement.parentElement)
-        console.log(index2);
+        let div = target.parentElement;
+        let index = Array.from(div.parentElement.children).indexOf(div);
+        removeTask(index, "unfinished");
+    }
+
+    // Check if we click add to finished button on the div
+    if (target.classList.contains("addBtn")) {
+        let div = target.parentElement;
+        let index = Array.from(div.parentElement.children).indexOf(div);
+        addTaskToFinished(index);
     }
 
     //console.log(e);
