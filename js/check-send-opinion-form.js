@@ -8,7 +8,7 @@ let surnameError = document.querySelector('.surname-error');
 let radiosError = document.querySelector('.radios-error');
 let checkboxesError = document.querySelector('.checkboxes-error');
 
-let nameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
+let nameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}?(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
 let surnameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}(-[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
 
 

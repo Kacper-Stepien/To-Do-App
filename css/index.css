@@ -124,6 +124,21 @@ footer {
     justify-content: center;
 }
 
+footer #link-to-contact {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    transition: all .2s;
+    padding: 1rem .6rem;
+    border-radius: 8px;
+}
+
+footer #link-to-contact:hover {
+    transform: translateY(-4px) scale(1.1);
+    background-color: var(--dark-blue-2);
+    cursor: pointer;
+}
+
 
 
 
