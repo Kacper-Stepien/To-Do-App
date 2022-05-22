@@ -1,12 +1,12 @@
 // Variables for log in form
-const loginForm = document.querySelector('#login-form');
+const loginForm = document.getElementById("login-form");
 const login = document.querySelector('#login');
 const loginError = document.querySelector('.login-error');
 const password = document.querySelector('#password');
 const passwordError = document.querySelector('.password-error')
 
 // Variables for sign up form
-const createForm = document.querySelector('#create-account-form');
+const createForm = document.getElementById("create-account-form");
 const namee = document.querySelector('#name');
 const nameError = document.querySelector('.name-error');
 const surname = document.querySelector('#surname');

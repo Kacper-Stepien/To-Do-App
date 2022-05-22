@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/app.css">
+
     <title>To Do</title>
 </head>
 
@@ -24,7 +25,7 @@
             </div>
             <a class="btn go-next" href="login.html">Wyloguj</a>
         </nav>
-        <section class="main-section">
+        <div class="main-section">
             <aside class="user-section">
                 <i class="fa-solid fa-user"></i>
                 <div class="user-login"></div>
@@ -49,7 +50,7 @@
                 </div>
             </aside>
 
-            <section class="tasks-sesction">
+            <div class="tasks-sesction">
                 <div class="task-section-header">
                     <h2>Lista zadań</h2>
                     <div class="task-section-buttons">
@@ -92,31 +93,30 @@
                 </div>
 
 
-            </section>
-            <section class="task-info-section">
+            </div>
+            <div class="task-info-section">
                 <div class="task-info-section-title">...</div>
                 <div class="task-info-section-date"></div>
                 <div class="task-info-section-description hidden">
                 </div>
-            </section>
-        </section>
+            </div>
+        </div>
 
         <!-- Hidden modals which appear after something happens -->
         <div class="modal add-task-modal hidden">
             <button class="close-modal">&times;</button>
             <h1>Dodawanie nowego zadania</h1>
             <p class="emptyTitleError"></p>
-            <input type="text" class="modal-title" id="modal-textarea" placeholder="Tytuł zadania">
-            <textarea name="" placeholder="Opis zadania..." id="modal-textarea" cols="30" rows="10"
-                class="modal-textarea"></textarea>
+            <input type="text" class="modal-title" placeholder="Tytuł zadania">
+            <textarea name="#" placeholder="Opis zadania..." cols="30" rows="10" class="modal-textarea"></textarea>
             <button class="btn modal-add-task">Dodaj zadanie</button>
         </div>
 
         <div class="modal modify-task-modal hidden">
             <button class="close-modal close-modify-modal">&times;</button>
             <h1>Edytuj zadanie</h1>
-            <input type="text" class="modal-title modify-modal-title" id="modal-textarea" placeholder="Tytuł zadania">
-            <textarea name="" placeholder="Opis zadania..." id="modal-textarea" cols="30" rows="10"
+            <input type="text" class="modal-title modify-modal-title" placeholder="Tytuł zadania">
+            <textarea name="#" placeholder="Opis zadania..." cols="30" rows="10"
                 class="modal-textarea modify-modal-description"></textarea>
             <button class="btn modal-add-task modify-task-btn">Zatwierdź</button>
         </div>
@@ -124,7 +124,7 @@
         <div class="overlay hidden"></div>
         <div class="page-error hidden">
             <h3>Nie jestes zalogowany, aby korzystać z aplikacji musisz się zalogować.</h3>
-            <button class="btn go-to-log-in"><a href="login.html">Przejdź do logowania</a></button>
+            <div class="btn go-to-log-in"><a href="login.html">Przejdź do logowania</a></div>
         </div>
 
 
@@ -133,7 +133,6 @@
         </footer>
     </main>
 </body>
-
 <script src="https://kit.fontawesome.com/8c4bd008c3.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
