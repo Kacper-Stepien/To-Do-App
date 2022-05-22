@@ -235,14 +235,42 @@ tasksUnfinishedList.addEventListener('click', function (e) {
     if (target.classList.contains("deleteBtn")) {
         let div = target.parentElement;
         let index = Array.from(div.parentElement.children).indexOf(div);
-        removeTask(index, "unfinished");
+        let newspaperSpinning = [
+            { background: 'linear-gradient(to right bottom, #780000, #d90429)' },
+            { transform: 'rotate(0) scale(0.9)', background: 'linear-gradient(to right bottom, #780000, #d90429)' },
+            { transform: 'translateX(-2000px)', background: 'linear-gradient(to right bottom, #780000, #d90429)' }
+        ];
+
+        let newspaperTiming = {
+            duration: 1200,
+            iterations: 1,
+        }
+        div.animate(newspaperSpinning, newspaperTiming);
+        setTimeout(function () {
+            removeTask(index, "unfinished");
+        }, 1100);
     }
 
     // Check if we click add to finished button on the div
     if (target.classList.contains("addBtn")) {
         let div = target.parentElement;
         let index = Array.from(div.parentElement.children).indexOf(div);
-        addTaskToFinished(index);
+        let newspaperSpinning = [
+            { background: 'linear-gradient(to right bottom,#008000, #38b000)' },
+            { transform: 'rotate(0) scale(0.9)', background: 'linear-gradient(to right bottom, #008000, #38b000)' },
+            { transform: 'translateY(500px)', background: 'linear-gradient(to right bottom, #008000, #38b000)' }
+        ];
+
+        let newspaperTiming = {
+            duration: 1200,
+            iterations: 1,
+        }
+
+        div.animate(newspaperSpinning, newspaperTiming);
+        setTimeout(function () {
+            addTaskToFinished(index);
+        }, 1100);
+
     }
 
     if (target.classList.contains("modifyBtn")) {
@@ -272,7 +300,20 @@ tasksFinishedList.addEventListener('click', function (e) {
     if (target.classList.contains("deleteBtn")) {
         let div = target.parentElement;
         let index = Array.from(div.parentElement.children).indexOf(div);
-        removeTask(index, "finished");
+        let newspaperSpinning = [
+            { background: 'linear-gradient(to right bottom, #780000, #d90429)' },
+            { transform: 'rotate(0) scale(0.9)', background: 'linear-gradient(to right bottom, #780000, #d90429)' },
+            { transform: 'translateX(-2000px)', background: 'linear-gradient(to right bottom, #780000, #d90429)' }
+        ];
+
+        let newspaperTiming = {
+            duration: 1200,
+            iterations: 1,
+        }
+        div.animate(newspaperSpinning, newspaperTiming);
+        setTimeout(function () {
+            removeTask(index, "finished");
+        }, 1100);
     }
 
 });

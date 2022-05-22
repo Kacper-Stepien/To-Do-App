@@ -1,3 +1,11 @@
 Icons:
 https://fontawesome.com/
 
+Dodatkowe rzeczy: 
+- animacje w js
+- customowy scrollbar
+- zrobienie modalów
+- progress bar 
+- delegacja zdarzeń
+- 
+
