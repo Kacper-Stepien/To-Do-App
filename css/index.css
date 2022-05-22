@@ -12,6 +12,7 @@ body {
 }
 
 .main-nav__logo {
+    cursor: pointer;
     display: flex;
     align-items: center;
     background: linear-gradient(to right bottom, var(--dark-blue-2), var(--light-blue-1));

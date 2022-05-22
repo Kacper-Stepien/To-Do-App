@@ -235,17 +235,17 @@ tasksUnfinishedList.addEventListener('click', function (e) {
     if (target.classList.contains("deleteBtn")) {
         let div = target.parentElement;
         let index = Array.from(div.parentElement.children).indexOf(div);
-        let newspaperSpinning = [
+        let goLeft = [
             { background: 'linear-gradient(to right bottom, #780000, #d90429)' },
             { transform: 'rotate(0) scale(0.9)', background: 'linear-gradient(to right bottom, #780000, #d90429)' },
             { transform: 'translateX(-2000px)', background: 'linear-gradient(to right bottom, #780000, #d90429)' }
         ];
 
-        let newspaperTiming = {
+        let Timing = {
             duration: 1200,
             iterations: 1,
         }
-        div.animate(newspaperSpinning, newspaperTiming);
+        div.animate(goLeft, Timing);
         setTimeout(function () {
             removeTask(index, "unfinished");
         }, 1100);
@@ -255,18 +255,18 @@ tasksUnfinishedList.addEventListener('click', function (e) {
     if (target.classList.contains("addBtn")) {
         let div = target.parentElement;
         let index = Array.from(div.parentElement.children).indexOf(div);
-        let newspaperSpinning = [
+        let goDown = [
             { background: 'linear-gradient(to right bottom,#008000, #38b000)' },
             { transform: 'rotate(0) scale(0.9)', background: 'linear-gradient(to right bottom, #008000, #38b000)' },
             { transform: 'translateY(500px)', background: 'linear-gradient(to right bottom, #008000, #38b000)' }
         ];
 
-        let newspaperTiming = {
+        let Timing = {
             duration: 1200,
             iterations: 1,
         }
 
-        div.animate(newspaperSpinning, newspaperTiming);
+        div.animate(goDown, Timing);
         setTimeout(function () {
             addTaskToFinished(index);
         }, 1100);
@@ -300,17 +300,17 @@ tasksFinishedList.addEventListener('click', function (e) {
     if (target.classList.contains("deleteBtn")) {
         let div = target.parentElement;
         let index = Array.from(div.parentElement.children).indexOf(div);
-        let newspaperSpinning = [
+        let goLeft = [
             { background: 'linear-gradient(to right bottom, #780000, #d90429)' },
             { transform: 'rotate(0) scale(0.9)', background: 'linear-gradient(to right bottom, #780000, #d90429)' },
             { transform: 'translateX(-2000px)', background: 'linear-gradient(to right bottom, #780000, #d90429)' }
         ];
 
-        let newspaperTiming = {
+        let Timing = {
             duration: 1200,
             iterations: 1,
         }
-        div.animate(newspaperSpinning, newspaperTiming);
+        div.animate(goLeft, Timing);
         setTimeout(function () {
             removeTask(index, "finished");
         }, 1100);
