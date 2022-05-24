@@ -22,8 +22,8 @@ const password2Error = document.querySelector('.password-2-error');
 
 // Variables for REGEX
 loginRegex = /[A-ZĄĆĘŁŃÓŚŻŹa-ząćęłńóśżź0-9]{5,20}/;
-nameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
-surnameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}(-[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
+nameRegex = /^[A-ZŁŚ][a-złóśćąęń]{1,20}(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?$/;
+surnameRegex = /^[A-ZŁŚ][a-złóśćąęń]{1,20}(-[A-ZŁŚ][a-złóśćąęń]{1,20})?$/;
 passwordRegex = /.{8,}/;
 
 // Functions for validation 
@@ -62,7 +62,7 @@ function createAccount() {
         name: namee.value,
         surname: surname.value,
         age: age.value,
-        task: [],
+        // task: [],
         taskCompleted: [],
         taskUncompleted: [],
     };
