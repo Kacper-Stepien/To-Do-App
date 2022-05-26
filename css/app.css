@@ -573,3 +573,10 @@ body {
     }
 
 }
+
+@media only screen and (min-width: 4000px) {
+    html {
+        font-size: 150%;
+    }
+
+}

@@ -1,7 +1,7 @@
-let logInForm1 = document.querySelector('#login-form');
-let createAccountForm1 = document.querySelector('#create-account-form');
-let createAccountPage = document.querySelector('#create-account');
-let logInPage = document.querySelector('#log-in');
+const logInForm1 = document.querySelector('#login-form');
+const createAccountForm1 = document.querySelector('#create-account-form');
+const createAccountPage = document.querySelector('#create-account');
+const logInPage = document.querySelector('#log-in');
 
 createAccountPage.addEventListener('click', function () {
     createAccountForm1.classList.remove('hidden');

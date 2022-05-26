@@ -1,36 +1,35 @@
 // Variables with DOM objects
-
 const pageErrorModal = document.querySelector('.page-error');
 const addTaskTitle = document.querySelector('.modal-title');
 const addTaskDescription = document.querySelector('.modal-textarea');
 const addTaskBtn = document.querySelector('.modal-add-task');
 const addTaskEmptyTitleError = document.querySelector('.emptyTitleError');
 
-let userLogin = document.querySelector('.user-login')
-let userName = document.querySelector('.user-name');
-let tasksDone = document.querySelector('.completed');
-let tasksUncompleted = document.querySelector('.uncomplited');
-let tasksAll = document.querySelector('.all');
-let progressBarLevel = document.querySelector('.progress-bar');
+const userLogin = document.querySelector('.user-login')
+const userName = document.querySelector('.user-name');
+const tasksDone = document.querySelector('.completed');
+const tasksUncompleted = document.querySelector('.uncomplited');
+const tasksAll = document.querySelector('.all');
+const progressBarLevel = document.querySelector('.progress-bar');
 
-let tasksFinishedList = document.querySelector('.tasks-finished')
-let tasksUnfinishedList = document.querySelector('.tasks-unfinished');
+const tasksFinishedList = document.querySelector('.tasks-finished')
+const tasksUnfinishedList = document.querySelector('.tasks-unfinished');
 
-let deleteAllUncompletedTaskBtn = document.querySelector('.deleteAllTaskBtn');
+const deleteAllUncompletedTaskBtn = document.querySelector('.deleteAllTaskBtn');
 
-let allUnfinishedTaskShowedOnPage = document.getElementsByClassName('.task-unfinished');
-let allFinishedTasksShowedOnPage = document.getElementsByClassName('.task-finished');
+const allUnfinishedTaskShowedOnPage = document.getElementsByClassName('.task-unfinished');
+const allFinishedTasksShowedOnPage = document.getElementsByClassName('.task-finished');
 
-let taskInfoSection = document.querySelector('.task-info-section');
-let taskInfoSectionTitle = document.querySelector('.task-info-section-title');
-let taskInfoSectioDate = document.querySelector('.task-info-section-date');
-let taskInfoSectionDescription = document.querySelector('.task-info-section-description');
+const taskInfoSection = document.querySelector('.task-info-section');
+const taskInfoSectionTitle = document.querySelector('.task-info-section-title');
+const taskInfoSectioDate = document.querySelector('.task-info-section-date');
+const taskInfoSectionDescription = document.querySelector('.task-info-section-description');
 
-let modifyTaskModal = document.querySelector('.modify-task-modal');
-let modifyTaskModalTitle = document.querySelector('.modify-modal-title');
-let modifyTaskModalDescription = document.querySelector('.modify-modal-description')
-let modifyTaskModalConfirmBtn = document.querySelector('.modify-task-btn');
-let modifyTaskModalCloseBtn = document.querySelector('.close-modify-modal');
+const modifyTaskModal = document.querySelector('.modify-task-modal');
+const modifyTaskModalTitle = document.querySelector('.modify-modal-title');
+const modifyTaskModalDescription = document.querySelector('.modify-modal-description')
+const modifyTaskModalConfirmBtn = document.querySelector('.modify-task-btn');
+const modifyTaskModalCloseBtn = document.querySelector('.close-modify-modal');
 
 
 // Functions
@@ -112,7 +111,6 @@ function displayTasksUncompleted(user) {
                 `<div class="task-dates"> ` +
                 `<div class="task-date">${taskList[i].date}</div > ` +
                 `<div class="task-last-edit">${taskList[i].lastModifiedDate}</div > </div ></div ></div >`;
-            console.log(task);
 
             tasksUnfinishedList.innerHTML += task.trim();
         }
@@ -143,7 +141,7 @@ function displayTasksCompleted(user) {
 
 
 function showTaskDesctiption(index, status) {
-    const user = JSON.parse(sessionStorage.getItem('userActive'));
+    let user = JSON.parse(sessionStorage.getItem('userActive'));
 
     if (status === "unfinished") {
         let task = user.taskUncompleted[index];
@@ -153,7 +151,7 @@ function showTaskDesctiption(index, status) {
         taskInfoSectionDescription.innerHTML = task.description;
     }
 
-    if (status == "finished") {
+    else if (status == "finished") {
         let task = user.taskCompleted[index];
         taskInfoSectionTitle.innerHTML = task.title;
         taskInfoSectioDate.innerHTML = task.date;
@@ -163,7 +161,7 @@ function showTaskDesctiption(index, status) {
 };
 
 function removeTask(index, status) {
-    const user = JSON.parse(sessionStorage.getItem('userActive'));
+    let user = JSON.parse(sessionStorage.getItem('userActive'));
 
     if (status === "unfinished") {
         user.taskUncompleted.splice(index, 1);
@@ -186,7 +184,7 @@ function removeTask(index, status) {
 }
 
 function addTaskToFinished(index) {
-    const user = JSON.parse(sessionStorage.getItem('userActive'));
+    let user = JSON.parse(sessionStorage.getItem('userActive'));
     let task = user.taskUncompleted[index];
     user.taskUncompleted.splice(index, 1);
     user.taskCompleted.unshift(task);
@@ -224,10 +222,9 @@ deleteAllUncompletedTaskBtn.addEventListener('click', deleteAllUncompletedTask);
 
 tasksUnfinishedList.addEventListener('click', function (e) {
     let target = e.target;
-
     // Check if we click the div with task - but not buttons on this div
     if (target.classList.contains("task-unfinished")) {
-        console.log("Działa");
+        // console.log("Działa");
         let index = Array.from(target.parentElement.children).indexOf(target);  // grabing index of div displayed on the page
         showTaskDesctiption(index, "unfinished");
     }
@@ -290,7 +287,6 @@ tasksUnfinishedList.addEventListener('click', function (e) {
 
 tasksFinishedList.addEventListener('click', function (e) {
     let target = e.target;
-
     // Check if we click the div with task - but not buttons on this div
     if (target.classList.contains("task-finished")) {
         let index = Array.from(target.parentElement.children).indexOf(target);  // grabing index of div displayed on the page
@@ -319,7 +315,6 @@ tasksFinishedList.addEventListener('click', function (e) {
 });
 
 modifyTaskModalCloseBtn.addEventListener('click', function () {
-    console.log("xd");
     modifyTaskModal.classList.add('hidden');
     document.querySelector('.overlay').classList.add('hidden');
 });

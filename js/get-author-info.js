@@ -8,4 +8,8 @@ function displayForm() {
         .catch(error => console.log("Błąd wczytywania"))
 }
 
-displayForm();
+// displayForm();
+
+window.addEventListener('DOMContentLoaded', function () {
+    displayForm();
+});

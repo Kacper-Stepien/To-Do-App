@@ -21,13 +21,12 @@ const password2 = document.querySelector('#password-2');
 const password2Error = document.querySelector('.password-2-error');
 
 // Variables for REGEX
-loginRegex = /[A-ZĄĆĘŁŃÓŚŻŹa-ząćęłńóśżź0-9]{5,20}/;
-nameRegex = /^[A-ZŁŚ][a-złóśćąęń]{1,20}(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?$/;
-surnameRegex = /^[A-ZŁŚ][a-złóśćąęń]{1,20}(-[A-ZŁŚ][a-złóśćąęń]{1,20})?$/;
-passwordRegex = /.{8,}/;
+const loginRegex = /[A-ZĄĆĘŁŃÓŚŻŹa-ząćęłńóśżź0-9]{5,20}/;
+const nameRegex = /^[A-ZŁŚ][a-złóśćąęń]{1,20}(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?$/;
+const surnameRegex = /^[A-ZŁŚ][a-złóśćąęń]{1,20}(-[A-ZŁŚ][a-złóśćąęń]{1,20})?$/;
+const passwordRegex = /.{8,}/;
 
 // Functions for validation 
-
 function checkInput(inputObject, regex) {
     if (!regex.test(inputObject.value)) {
         return false;
@@ -49,9 +48,9 @@ function checkIfUsernameIsAvaliable(login) {
 function clearErrors() {
     const errors = document.querySelectorAll('.error');
     [].slice.call(errors).forEach(function (error) {
-        console.log(error.innerHTML);
+        // console.log(error.innerHTML);
         error.innerHTML = "";
-        console.log(error.innerHTML);
+        // console.log(error.innerHTML);
     });
 }
 
@@ -62,7 +61,6 @@ function createAccount() {
         name: namee.value,
         surname: surname.value,
         age: age.value,
-        // task: [],
         taskCompleted: [],
         taskUncompleted: [],
     };
@@ -74,9 +72,9 @@ function createAccount() {
     createForm.reset();
 }
 
+
 // Validation for creating account
 createForm.addEventListener('submit', (e) => {
-
     let sendForm = true;
 
     // Check name:
@@ -105,7 +103,7 @@ createForm.addEventListener('submit', (e) => {
     // Check login
     if (!checkInput(login1, loginRegex)) {
         sendForm = false;
-        login1Error.innerHTML = "Wpisz poprawny login, minimum 5 znaków - litery i cyfry";
+        login1Error.innerHTML = "Wpisz poprawny login, zawiera litery i cyfry, 5-20 znaków";
     }
     else if (localStorage.getItem(login1.value) !== null) {
         sendForm = false;
@@ -115,7 +113,6 @@ createForm.addEventListener('submit', (e) => {
         login1Error.innerHTML = "";
     }
 
-
     // Check password 
     if (password1.value.length == 0) {
         sendForm = false;
@@ -123,12 +120,11 @@ createForm.addEventListener('submit', (e) => {
     }
     else if (!checkInput(password1, passwordRegex)) {
         sendForm = false;
-        password1Error.innerHTML = "Wpisz poprawne hasło";
+        password1Error.innerHTML = "Wpisz poprawne hasło, minimum 8 znaków";
     }
     else {
         password1Error.innerHTML = "";
     }
-
 
     // Check confirmation of password 
     if (password2.value.length == 0) {
@@ -152,7 +148,7 @@ createForm.addEventListener('submit', (e) => {
 })
 
 
-// validation for Log in
+// Validation for Log in
 loginForm.addEventListener('submit', (e) => {
     let shoudlLogin = true;
 

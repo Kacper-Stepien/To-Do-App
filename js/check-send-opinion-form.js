@@ -1,15 +1,15 @@
-let userNameInput = document.getElementById('user-name');
-let userSurnameInput = document.getElementById('user-surname');
-let whereFindOutRadios = document.getElementsByName('where-find-out');
-let advantagesCheckboxes = document.getElementsByName('zalety');
-let sendOpinionBtn = document.querySelector('.send-opinion');
-let nameError = document.querySelector('.name-error');
-let surnameError = document.querySelector('.surname-error');
-let radiosError = document.querySelector('.radios-error');
-let checkboxesError = document.querySelector('.checkboxes-error');
+const userNameInput = document.getElementById('user-name');
+const userSurnameInput = document.getElementById('user-surname');
+const whereFindOutRadios = document.getElementsByName('where-find-out');
+const advantagesCheckboxes = document.getElementsByName('zalety');
+const sendOpinionBtn = document.querySelector('.send-opinion');
+const nameError = document.querySelector('.name-error');
+const surnameError = document.querySelector('.surname-error');
+const radiosError = document.querySelector('.radios-error');
+const checkboxesError = document.querySelector('.checkboxes-error');
 
-let nameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}?(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
-let surnameRegex = /[A-ZŁŚ][a-złóśćąęń]{1,20}(-[A-ZŁŚ][a-złóśćąęń]{1,20})?/;
+const nameRegex = /^[A-ZŁŚ][a-złóśćąęń]{1,20}(\s[A-ZŁŚ][a-złóśćąęń]{1,20})?$/;
+const surnameRegex = /^[A-ZŁŚ][a-złóśćąęń]{1,20}(-[A-ZŁŚ][a-złóśćąęń]{1,20})?$/;
 
 
 // Validation of input
@@ -23,7 +23,8 @@ function checkInput(element, Regex) {
     }
 }
 
-function checkRadiosOrCheckoxes(elements) {
+// Check if at least one checkbox is checked or radio is checked
+function checkRadiosOrCheckBoxes(elements) {
     for (let i = 0; i < elements.length; i++) {
         if (elements[i].checked) {
             return true;
@@ -55,7 +56,7 @@ sendOpinionBtn.addEventListener('click', function (event) {
     }
 
     // Check radios
-    if (!checkRadiosOrCheckoxes(whereFindOutRadios)) {
+    if (!checkRadiosOrCheckBoxes(whereFindOutRadios)) {
         send = false;
         radiosError.innerHTML = "Zaznacz jedną z opcji";
     }
@@ -64,7 +65,7 @@ sendOpinionBtn.addEventListener('click', function (event) {
     }
 
     // Check checkboxes
-    if (!checkRadiosOrCheckoxes(advantagesCheckboxes)) {
+    if (!checkRadiosOrCheckBoxes(advantagesCheckboxes)) {
         send = false;
         checkboxesError.innerHTML = "Zaznacz przynajmniej jedną z opcji";
     }
@@ -72,7 +73,7 @@ sendOpinionBtn.addEventListener('click', function (event) {
         checkboxesError.innerHTML = "";
     }
 
-    if (send === false) {
+    if (send === false) {           // If send is false prevent to allow submit the form
         event.preventDefault();
     }
 })
